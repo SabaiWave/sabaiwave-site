@@ -6,5 +6,6 @@ export const ctaDetails = {
   primaryCtaUrl: "#contact", // or link to your contact section/page
   secondaryCtaLabel: "Learn More",
   secondaryCtaUrl: "#services",
-  appStoreUrl: "https://apps.apple.com/your-app", // Replace with your actual App Store URL
+  appStoreUrl: "https://apps.apple.com/your-app",
+  googlePlayUrl: "https://play.google.com/store/apps/details?id=your.app",
 };
