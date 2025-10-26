@@ -8,36 +8,43 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Stats from "@/components/Stats";
 import CTA from "@/components/CTA";
+import { flags } from "@/lib/flags";
 
 const HomePage: React.FC = () => {
   return (
     <>
-      <Hero />
-      <Logos />
+      {flags.SHOW_HERO && <Hero />}
+
+      {flags.SHOW_LOGOS && <Logos />}
+
       <Container>
-        <Benefits />
+        {flags.SHOW_BENEFITS && <Benefits />}
 
-        <Section
-          id="pricing"
-          title="Pricing"
-          description="Simple, transparent pricing. No surprises."
-        >
-          <Pricing />
-        </Section>
+        {flags.SHOW_PRICING && (
+          <Section
+            id="pricing"
+            title="Pricing"
+            description="Simple, transparent pricing. No surprises."
+          >
+            <Pricing />
+          </Section>
+        )}
 
-        <Section
-          id="testimonials"
-          title="What Our Clients Say"
-          description="Hear from those who have partnered with us."
-        >
-          <Testimonials />
-        </Section>
+        {flags.SHOW_TESTIMONIALS && (
+          <Section
+            id="testimonials"
+            title="What Our Clients Say"
+            description="Hear from those who have partnered with us."
+          >
+            <Testimonials />
+          </Section>
+        )}
 
-        <FAQ />
+        {flags.SHOW_FAQ && <FAQ />}
 
-        <Stats />
-        
-        <CTA />
+        {flags.SHOW_STATS && <Stats />}
+
+        {flags.SHOW_CTA && <CTA />}
       </Container>
     </>
   );
