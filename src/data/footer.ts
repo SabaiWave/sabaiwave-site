@@ -4,7 +4,7 @@ export const footerDetails: {
   subheading: string;
   quickLinks: IMenuItem[];
   email: string;
-  telephone: string;
+  telephone?: string;
   socials: ISocials;
 } = {
   subheading:
