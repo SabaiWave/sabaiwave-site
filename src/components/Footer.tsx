@@ -4,7 +4,7 @@ import { FaFingerprint } from 'react-icons/fa';
 
 import { siteDetails } from '@/data/siteDetails';
 import { footerDetails } from '@/data/footer';
-import { getPlatformIconByName } from '@/utils';
+//import { getPlatformIconByName } from '@/utils';
 import { flags } from "@/lib/flags";
 
 const Footer: React.FC = () => {
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
             </a>
           )}
 
-          {footerDetails.socials && (
+          {/* {footerDetails.socials && (
             <div className="mt-5 flex items-center gap-5 flex-wrap">
               {Object.keys(footerDetails.socials).map((platformName) => {
                 if (platformName && footerDetails.socials[platformName]) {
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                 }
               })}
             </div>
-          )}
+          )} */}
         </div>
       </div>
       <div className="mt-8 md:text-center text-foreground-accent px-6">
