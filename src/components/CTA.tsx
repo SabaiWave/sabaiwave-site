@@ -19,6 +19,36 @@ const CTA: React.FC = () => {
 
             <p className="mx-auto max-w-xl md:px-5">{ctaDetails.subheading}</p>
 
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              {flags.SHOW_CTA_EMAIL_BUTTON && (
+                <a
+                  href="mailto:info@sabaiwave.com?subject=Project%20inquiry%20-%20Sabai%20Wave"
+                  className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold bg-white text-black hover:opacity-90 transition"
+                >
+                  Email Us
+                </a>
+              )}
+
+              {flags.SHOW_CTA_SECONDARY_BUTTON && (
+                <a
+                  href="#services"
+                  className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold border border-white/30 text-white hover:border-white/60 transition"
+                >
+                  View Services
+                </a>
+              )}
+            </div>
+
+            <p className="mt-4 text-sm text-white/70">
+              Or email us directly:{" "}
+              <a
+                className="underline hover:text-white"
+                href="mailto:info@sabaiwave.com"
+              >
+                info@sabaiwave.com
+              </a>
+            </p>
+
             {flags.SHOW_STORE_BUTTONS && (
               <div className="mt-4 flex flex-col sm:flex-row items-center sm:gap-4">
                 <AppStoreButton />
