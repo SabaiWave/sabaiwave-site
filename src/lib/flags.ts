@@ -28,4 +28,10 @@ export const flags = {
   SHOW_FOOTER: parseBool(process.env.NEXT_PUBLIC_SHOW_FOOTER),
   SHOW_STORE_BUTTONS: parseBool(process.env.NEXT_PUBLIC_SHOW_STORE_BUTTONS),
   SHOW_TESTIMONIALS: parseBool(process.env.NEXT_PUBLIC_SHOW_TESTIMONIALS),
+  SHOW_CTA_EMAIL_BUTTON: parseBool(
+    process.env.NEXT_PUBLIC_SHOW_CTA_EMAIL_BUTTON
+  ),
+  SHOW_CTA_SECONDARY_BUTTON: parseBool(
+    process.env.NEXT_PUBLIC_SHOW_CTA_SECONDARY_BUTTON
+  ),
 } as const;
