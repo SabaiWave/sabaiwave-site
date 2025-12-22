@@ -134,7 +134,7 @@ export default function HomePage() {
 
       <main className="relative z-10">
         {/* HERO */}
-        <section className="flex flex-col items-start justify-start sm:justify-center min-h-[calc(100vh-80px)] px-6 sm:px-12 lg:px-20 max-w-6xl pt-4 sm:-mt-12 lg:-mt-24">
+        <section className="flex flex-col items-start justify-start sm:justify-center px-6 sm:px-12 lg:px-20 max-w-6xl pt-8 sm:pt-16 lg:pt-24 pb-12 sm:pb-16 lg:pb-20">
           {SHOW_TRIAL_BADGE && (
             <div className="mb-4 sm:mb-8">
               <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 sm:px-4 py-2">
@@ -178,12 +178,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Tighten gap between Hero and About when About is enabled e.g. -mt-8 sm:-mt-12 lg:-mt-16 */}
+        {/* About section with consistent spacing */}
         {SHOW_ABOUT && (
           <section
             id="about"
             className="px-6 sm:px-12 lg:px-20 max-w-6xl mx-auto
-                   -mt-8 sm:-mt-12 lg:-mt-16
                    pt-6 pb-16 sm:pb-20 scroll-mt-24"
           >
             <div className="mb-8">
