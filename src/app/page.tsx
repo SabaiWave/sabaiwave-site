@@ -169,7 +169,7 @@ export default function HomePage() {
               <Link href="/about">
                 <Button
                   variant="outline"
-                  className="border-white/20 text-white/80 hover:text-white hover:bg-white/10 text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3"
+                  className="border-white/20 bg-white/5 text-white/80 hover:text-white hover:bg-white/15 text-sm sm:text-base px-6 sm:px-8 py-2.5 sm:py-3 transition-all duration-300 hover:scale-105 hover:-translate-y-0.5"
                 >
                   About Sabai Wave
                 </Button>
@@ -199,7 +199,7 @@ export default function HomePage() {
               {aboutSections.map((section) => (
                 <div
                   key={section.title}
-                  className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
+                  className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-white/20 hover:bg-white/8 hover:scale-105 transition-all duration-300"
                 >
                   <h3 className="text-white font-semibold text-lg">
                     {section.title}

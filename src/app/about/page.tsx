@@ -1,11 +1,19 @@
 import { aboutSections } from "@/data/about";
-
+import { Header } from "@/components/Header";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen text-white px-6 sm:px-12 lg:px-20 py-16">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-semibold">About Sabai Wave</h1>
+    <div className="min-h-screen">
+      <Header
+        navLinks={[
+          { href: "/", label: "Home" },
+          { href: "/contact", label: "Contact" },
+        ]}
+      />
+
+      <main className="text-white px-6 sm:px-12 lg:px-20 py-16">
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-semibold">About Sabai Wave</h1>
         <p className="text-white/60 mt-3 max-w-2xl">
           A lean engineering partner for teams that want speed without
           sacrificing quality.
@@ -15,7 +23,7 @@ export default function AboutPage() {
           {aboutSections.map((section) => (
             <div
               key={section.title}
-              className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
+              className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-white/20 hover:bg-white/8 hover:scale-105 transition-all duration-300"
             >
               <h2 className="text-lg font-semibold">{section.title}</h2>
               <p className="text-white/60 mt-2 text-sm leading-relaxed">
@@ -34,5 +42,6 @@ export default function AboutPage() {
         </div>
       </div>
     </main>
+    </div>
   );
 }
