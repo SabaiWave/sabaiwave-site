@@ -46,16 +46,16 @@ export default function HomePage() {
     <div className={containerClass}>
       {/* Header Navigation */}
       <header className="relative z-50 flex items-center justify-between px-6 sm:px-12 lg:px-20 py-4">
-        <Link href="/" className="flex items-center space-x-2" aria-label="Home">
+        <Link href="/" className="flex items-center gap-0 group" aria-label="Home">
           <Image
             src="/images/sbw-icon.png"
             alt="Logo"
             width={56}
             height={56}
-            className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14"
+            className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 group-hover:scale-105 transition-transform"
             priority
           />
-          <span className="text-white/80 font-medium text-base sm:text-lg lg:text-xl">
+          <span className="text-white/80 font-medium text-base sm:text-lg lg:text-xl group-hover:text-white transition-colors">
             Sabai Wave
           </span>
         </Link>
