@@ -1,15 +1,19 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { flags } from "@/lib/flags";
 
 export default function ContactPage() {
+  // About link should go to homepage anchor if SHOW_ABOUT=true, otherwise to /about page
+  const aboutHref = flags.SHOW_ABOUT ? "/#about" : "/about";
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: aboutHref, label: "About us" },
+  ];
+
   return (
     <div className="min-h-screen">
-      <Header
-        navLinks={[
-          { href: "/", label: "Home" },
-          { href: "/about", label: "About us" },
-        ]}
-      />
+      <Header navLinks={navLinks} />
 
       <main className="text-white px-6 sm:px-12 lg:px-20 py-16">
         <div className="max-w-3xl mx-auto">
@@ -18,7 +22,7 @@ export default function ContactPage() {
           The fastest way to reach me is email.
         </p>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-white/20 hover:bg-white/8 hover:scale-105 transition-all duration-300">
+        <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-white/20 hover:bg-white/8 hover:scale-105 active:scale-105 active:border-white/20 active:bg-white/8 transition-all duration-300">
           <div className="text-white/80 text-sm">Email</div>
           <div className="mt-2">
             <a
