@@ -10,6 +10,6 @@ export const siteDetails: SiteDetails = {
   },
   language: "en-us",
   locale: "en-US",
-  siteLogo: "/images/logo.png", // Update this if you replace the logo file
+  siteLogo: "/images/sbw-icon.png",
   googleAnalyticsId: "", // e.g. G-XXXXXXX
 };

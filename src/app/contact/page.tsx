@@ -1,49 +1,159 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import { Header } from "@/components/Header";
-import { flags } from "@/lib/flags";
+import { Footer } from "@/components/Footer";
+import { ArrowRight } from "lucide-react";
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/#what-we-build", label: "What we build" },
+];
+
+const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+
+type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function ContactPage() {
-  // About link should go to homepage anchor if SHOW_ABOUT=true, otherwise to /about page
-  const aboutHref = flags.SHOW_ABOUT ? "/#about" : "/about";
+  const [state, setState] = useState<FormState>("idle");
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: aboutHref, label: "About us" },
-  ];
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!FORMSPREE_ID) return;
+
+    setState("submitting");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setState("success");
+        form.reset();
+      } else {
+        setState("error");
+      }
+    } catch {
+      setState("error");
+    }
+  }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col bg-[#0B0D12]">
       <Header navLinks={navLinks} />
 
-      <main className="text-white px-6 sm:px-12 lg:px-20 py-16">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl font-semibold">Contact</h1>
-        <p className="text-white/60 mt-3">
-          The fastest way to reach me is email.
-        </p>
+      <main className="flex-1 px-6 sm:px-12 lg:px-20 py-16 sm:py-24">
+        <div className="max-w-xl">
+          <h1
+            className="text-[#EDEDED] font-bold leading-tight tracking-tight mb-3"
+            style={{ fontSize: "clamp(2rem, 4vw, 2.75rem)" }}
+          >
+            Let&apos;s talk
+          </h1>
+          <p className="text-[#8A8F98] text-lg mb-10 text-pretty">
+            Tell me what you&apos;re working on. I&apos;ll get back to you within one business day.
+          </p>
 
-        <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-white/20 hover:bg-white/8 hover:scale-105 active:scale-105 active:border-white/20 active:bg-white/8 transition-all duration-300">
-          <div className="text-white/80 text-sm">Email</div>
-          <div className="mt-2">
+          {/* Email */}
+          <div className="mb-10">
+            <p className="text-[#8A8F98] text-sm mb-1">Or email directly</p>
             <a
-              className="text-white underline underline-offset-4 hover:text-white/90"
               href="mailto:info@sabaiwave.com"
+              className="text-[#2DD4BF] hover:text-[#EDEDED] transition-colors font-medium"
             >
               info@sabaiwave.com
             </a>
           </div>
 
-          <div className="mt-6 flex gap-3">
-            <Link
-              href="/about"
-              className="text-white/80 hover:text-white underline underline-offset-4"
-            >
-              Learn more about how we work →
-            </Link>
-          </div>
+          {/* Form */}
+          {!FORMSPREE_ID ? (
+            <p className="text-[#8A8F98] text-sm border border-[#20242C] rounded-lg p-4">
+              Contact form not configured.{" "}
+              <a href="mailto:info@sabaiwave.com" className="text-[#2DD4BF] hover:underline">
+                Email us directly.
+              </a>
+            </p>
+          ) : state === "success" ? (
+            <div className="border border-[#2DD4BF]/30 bg-[#2DD4BF]/5 rounded-lg p-6">
+              <p className="text-[#EDEDED] font-medium mb-1">Message sent.</p>
+              <p className="text-[#8A8F98] text-sm">I&apos;ll be in touch soon.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="name" className="block text-[#8A8F98] text-sm font-medium mb-2">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  autoComplete="name"
+                  className="w-full bg-[#13161C] border border-[#20242C] rounded-lg px-4 py-3 text-[#EDEDED] placeholder-[#8A8F98]/50 text-sm focus:outline-none focus:border-[#2DD4BF] transition-colors"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-[#8A8F98] text-sm font-medium mb-2">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  autoComplete="email"
+                  className="w-full bg-[#13161C] border border-[#20242C] rounded-lg px-4 py-3 text-[#EDEDED] placeholder-[#8A8F98]/50 text-sm focus:outline-none focus:border-[#2DD4BF] transition-colors"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-[#8A8F98] text-sm font-medium mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={5}
+                  className="w-full bg-[#13161C] border border-[#20242C] rounded-lg px-4 py-3 text-[#EDEDED] placeholder-[#8A8F98]/50 text-sm focus:outline-none focus:border-[#2DD4BF] transition-colors resize-none"
+                  placeholder="What are you working on?"
+                />
+              </div>
+
+              {state === "error" && (
+                <p className="text-red-400 text-sm">
+                  Something went wrong. Try emailing{" "}
+                  <a href="mailto:info@sabaiwave.com" className="underline">
+                    info@sabaiwave.com
+                  </a>{" "}
+                  directly.
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={state === "submitting"}
+                className="inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0B0D12] font-semibold px-7 py-3 rounded-lg text-sm hover:bg-[#22B8A6] transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed group"
+              >
+                {state === "submitting" ? "Sending…" : "Send message"}
+                {state !== "submitting" && (
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+                )}
+              </button>
+            </form>
+          )}
         </div>
-      </div>
-    </main>
+      </main>
+
+      <Footer />
     </div>
   );
 }
