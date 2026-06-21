@@ -56,4 +56,16 @@ Thumbs.db
 *.bak
 *.orig
 
+CLAUDE.md
+DESIGN.md
+PHASES.md
+PRODUCT.md
+docs/*
+!docs/.gitkeep
 .claude/
+
+/handoffs/*
+!handoffs/.gitkeep
+/docs/*
+!docs/.gitkeep
+/sessions/

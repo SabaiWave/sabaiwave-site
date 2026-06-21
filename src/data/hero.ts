@@ -1,17 +1,16 @@
-// src/data/hero.ts
 import type { HeroDetails } from "@/types";
 
 export const heroDetails: HeroDetails = {
-  heading: "Modern IT Solutions for a Lean, Scalable Future",
+  heading: "A technical partner who actually shows up.",
   subheading:
-    "Sabai Wave helps startups and growing teams build, automate, and scale through pragmatic engineering, modern cloud tooling, and clean system design.",
-  centerImageSrc: "/images/hero-mockup.webp",
+    "Sabai Wave designs and builds software for startups and growing teams. Web apps, automation, cloud infrastructure. Direct communication, zero bureaucracy. You always know exactly what's happening and why.",
+  centerImageSrc: "",
   primaryCta: {
-    label: "Contact Us",
+    label: "Get in touch",
     href: "/contact",
   },
   secondaryCta: {
-    label: "About Sabai Wave",
-    href: "/about",
+    label: "What we build",
+    href: "#what-we-build",
   },
 };
