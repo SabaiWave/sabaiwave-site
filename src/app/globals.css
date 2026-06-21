@@ -124,6 +124,13 @@ html {
   filter: blur(80px);
 }
 
+.gradient-text {
+  background: linear-gradient(120deg, #EDEDED 20%, #2DD4BF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .site-bg::after {
   content: "";
   position: absolute;
