@@ -1,6 +1,4 @@
 import "./globals.css";
-import { BackgroundWaves } from "@/components/BackgroundWaves";
-import { flags } from "@/lib/flags";
 import { siteDetails } from "@/data/siteDetails";
 import { Geist, JetBrains_Mono } from "next/font/google";
 import type { Metadata, Viewport } from "next";
@@ -45,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${geist.variable} ${jetbrainsMono.variable}`}>
       <body className="min-h-screen bg-[#0B0D12]">
-        <BackgroundWaves enableAnimations={flags.ENABLE_ANIMATIONS} />
+        <div className="site-bg" aria-hidden="true" />
         <div className="relative z-10">{children}</div>
       </body>
     </html>
