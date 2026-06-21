@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -55,7 +55,7 @@ export default function ContactPage() {
             Let&apos;s talk
           </h1>
           <p className="text-[#8A8F98] text-lg mb-10 text-pretty">
-            Tell me what you&apos;re working on. I&apos;ll get back to you within one business day.
+            Tell me what you&apos;re working on. I&apos;ll get back to you as soon as I can.
           </p>
 
           {/* Email */}
@@ -80,7 +80,7 @@ export default function ContactPage() {
           ) : state === "success" ? (
             <div className="border border-[#2DD4BF]/30 bg-[#2DD4BF]/5 rounded-lg p-6">
               <p className="text-[#EDEDED] font-medium mb-1">Message sent.</p>
-              <p className="text-[#8A8F98] text-sm">I&apos;ll be in touch soon.</p>
+              <p className="text-[#8A8F98] text-sm">I&apos;ll be in touch.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -141,11 +141,11 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={state === "submitting"}
-                className="inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0B0D12] font-semibold px-7 py-3 rounded-lg text-sm hover:bg-[#22B8A6] transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed group"
+                className="inline-flex items-center gap-1.5 bg-[#2DD4BF] text-[#0B0D12] font-semibold px-7 py-3 rounded-lg text-sm hover:bg-[#22B8A6] hover:shadow-[0_0_24px_rgba(45,212,191,0.35)] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed group"
               >
                 {state === "submitting" ? "Sending…" : "Send message"}
                 {state !== "submitting" && (
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
                 )}
               </button>
             </form>

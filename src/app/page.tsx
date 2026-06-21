@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { heroDetails } from "@/data/hero";
@@ -32,10 +32,10 @@ export default function HomePage() {
 
             <Link
               href={heroDetails.primaryCta.href}
-              className="inline-flex items-center gap-2 bg-[#2DD4BF] text-[#0B0D12] font-semibold px-7 py-3 rounded-lg text-base hover:bg-[#22B8A6] transition-colors duration-200 group"
+              className="inline-flex items-center gap-1.5 bg-[#2DD4BF] text-[#0B0D12] font-semibold px-7 py-3 rounded-lg text-base hover:bg-[#22B8A6] hover:shadow-[0_0_24px_rgba(45,212,191,0.35)] transition-all duration-200 group"
             >
               {heroDetails.primaryCta.label}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+              <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
             </Link>
           </section>
 
