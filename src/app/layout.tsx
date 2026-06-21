@@ -2,7 +2,19 @@ import "./globals.css";
 import { BackgroundWaves } from "@/components/BackgroundWaves";
 import { flags } from "@/lib/flags";
 import { siteDetails } from "@/data/siteDetails";
+import { Geist, JetBrains_Mono } from "next/font/google";
 import type { Metadata, Viewport } from "next";
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-jetbrains-mono",
+});
 
 export const metadata: Metadata = {
   title: siteDetails.metadata.title,
@@ -31,8 +43,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-black">
+    <html lang="en" className={`${geist.variable} ${jetbrainsMono.variable}`}>
+      <body className="min-h-screen bg-[#0B0D12]">
         <BackgroundWaves enableAnimations={flags.ENABLE_ANIMATIONS} />
         <div className="relative z-10">{children}</div>
       </body>
