@@ -43,7 +43,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0B0D12]">
+    <div className="min-h-screen flex flex-col">
       <Header navLinks={navLinks} />
 
       <main className="flex-1 px-6 sm:px-12 lg:px-20 py-16 sm:py-24">

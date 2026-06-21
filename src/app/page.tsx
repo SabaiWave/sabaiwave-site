@@ -23,7 +23,8 @@ export default function HomePage() {
               className="text-[#EDEDED] font-bold leading-[1.05] tracking-tight text-balance mb-6"
               style={{ fontSize: "clamp(2.25rem, 5vw, 3.75rem)" }}
             >
-              {heroDetails.heading}
+              We build software.{" "}
+              <span className="gradient-text">You build the future.</span>
             </h1>
 
             <p className="text-[#8A8F98] text-lg sm:text-xl leading-relaxed max-w-2xl mb-10 text-pretty">
